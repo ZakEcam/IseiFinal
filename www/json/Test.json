@@ -1,0 +1,74 @@
+{
+    "Brûlures": {
+        "Chimique": {
+             
+            },
+        "Electrique": {},
+        "Source chaude": {},
+        "Coup de soleil": {},
+        "Engelure": {},
+        "Brûlure à l'oeil": {}
+    },
+    "Noyade": { 
+        
+      
+        
+        
+        "Demarche": 2 ,
+        "Remarque":"cliquez sur Urgences Sommaire pour revenir aux différents choix"
+        
+        
+    },
+    "Morsure / Piqûre": {
+        "Animaux": {},
+        "Serpent": {},
+        "Abeille / Guêpe": {},
+        "Tique": {},
+        "Araignée": {},
+        "Méduse": {}
+    },
+     "Diabète": {},
+    "Intoxications": {
+        "Alimentaire": {},
+        "Alcoolique": {},
+        "Drogue / Médicament": {},
+        "Produit chimique": {}
+    },
+    "Les coupures": {},
+    "Problèmes sexuels": {
+        "Masculin": {
+            "Priapisme": {},
+            "Rupture du frein": {},
+            "Syndrome du pénis captif": {},
+            "Problème avec le contraceptif": {}
+        },
+        "Féminin": {
+            "Problème avec le contraceptif": {}
+        }
+    },
+     "Problèmes respiratoires": {
+        "Environnement": {},
+        "Obstruction des voies respiratoires": {}
+    },
+    "Chutes": {
+        "Fracture": {},
+        "Saignement": {},
+        "Bleu": {},
+        "Inconscience": {}
+    },
+    "Malaise": {},
+    "Palpitations": {
+        "Problème cardiaque": {
+            "Douleur dans la poitrine": {},
+            "Infarctus": {},
+            "Accident vasculaire cérébral": {},
+            "Arrêt cardio-respiratoire": {}
+        },
+         "Problème neurologique": {
+            "Crise d'épilepsie": {},
+            "Convultions": {}
+        }
+    },
+     "Accident de la route": {},
+     "Allergie": {}
+}

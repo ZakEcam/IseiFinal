@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title> Application ISEI </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <!--  <link rel="stylesheet" type="text/css" href="css/index.css" /> <!--à ajouter-->
+         
+         <link rel="stylesheet" href="css/themes/FinalTheme.css" />
+         <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+         <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css" />
+         <link rel="stylesheet" href="css/themes/Custom.css" /> <!--change la couleur du placeholder-->
+         <script src="phonegap.js"></script>
+       
+               
+        <script src="js/jquery.js"></script>
+        <script src="js/jquery.mobile-1.4.5.min.js"></script>
+        
+        <script type="text/javascript">
+         
+         
+         $(document).on("swipeleft",function(event,ui){
+             //en touchant l'ecran vers la gauche on ouvre le panel 
+             $("#myPanel").panel("open");
+         });
+         
+         
+            
+          window.onload= function(){
+              
+               document.getElementById("enregistrer").addEventListener('click', storeData
+                      , false);
+              
+               document.getElementById("rec").addEventListener('click', loadData
+                      , false);
+                      
+               document.getElementById("reset").addEventListener('click', clearData
+                      , false);
+                      
+                      document.getElementById("yesErase").addEventListener('click', function () {
+                          
+                         // localStorage.clear();
+                          
+                          $.when(localStorage.clear()).then(function( ) {
+                              
+                              var NoSir=("#cancel").clicked;
+                              
+                               $( "#popup2" ).popup({            //juste après la fermeture du popup2
+                              afterclose: function() {
+                              
+                                 $( "#popup3" ).popup( "open" );
+                                   
+                                   
+                                   
+                              }
+                               });
+                               
+                               //$("#popup3").hide().removeClass('visible');
+                               
+                             if (NoSir) return false;
+                                            });
+                          
+                         
+                          
+                          
+                        //   var YesSir= $("yesErase").click(function(){});
+                          
+                          
+                        //   //var NoSir=("#cancel").clicked
+                          
+                        //   $( "#popup2" ).popup({            //juste après la fermeture du popup2
+                        //       afterclose: function() {
+                        //       if  (YesSir)  {
+                        //           $( "#popup3" ).popup( "open" );
+                                   
+                                  
+                        //       }   
+                                  
+                        //       else {
+                              
+                        //      //$("#popup3").fadeOut().removeClass("active");// n'affiche pas popup3
+                        //      $("#popup3").hide().removeClass('visible');
+                             
+                        //       }
+                        //       }
+                        //         });
+                          
+                          
+                         $( "#popup2" ).popup( "close" );
+                         
+                          
+                      }
+                      , false);
+                      
+                    document.getElementById("cancel").addEventListener('click', function () {
+                        
+                        $( "#popup2" ).popup( "close" );
+                        //$("#popup3").hide().removeClass('visible');
+                        //$("#popup3").fadeOut().removeClass("active");
+                    }
+                      , false);  
+                      
+                      
+               //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Urgences buttons!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\\\\\\\\\\\\\\\\\\\\\
+               
+                document.getElementById("forw2").addEventListener('click', function () {
+                    //A signifie que la personne a répondu oui à la question : respire-t-elle?
+                    
+                     //B signifie que la personne a répondu non à la question : respire-t-elle?
+                    
+                    if (document.getElementById('radioRespA').checked) {
+                        
+                        
+                        document.location.href = '#ObservationA';
+                        
+                        
+                        
+                   
+
+                } else if (document.getElementById('radioRespB').checked) {
+        
+                        document.location.href = '#ObservationB';
+
+
+
+                        }
+                        
+                      
+                    }
+                      , false);  
+                      
+                      
+                      
+                      
+                      
+                      document.getElementById("forw3").addEventListener('click', function () {
+                    //A signifie que la personne a répondu oui à la question : respire-t-elle? et oui à la conscience
+                    
+                     //B signifie que la personne a répondu oui à la question : respire-t-elle? et nn à la conscience
+                    
+                    if (document.getElementById('radioConscA').checked) {
+                        
+                        
+                        document.location.href = '#StabilisationYesYes';
+                        
+                        
+                        
+                   
+
+                } else if (document.getElementById('radioConscB').checked) {
+        
+                        document.location.href = '#StabilisationYesNo';
+
+
+
+                        }
+                        
+                      
+                    }
+                      , false);  
+               
+               
+               
+              
+          };
+          
+          
+          
+          
+          
+          function storeData(){
+            
+            var radioval =$('input[name="gender"]:Checked').val();// value radio
+            
+            
+            var fname= document.getElementById('fname').value;
+            
+            
+            var lname= document.getElementById('lname').value;
+            
+            var bday= document.getElementById('bday').value;
+            
+            
+            
+            var slider1 =document.getElementById('slider1').value;
+            
+            var slider2 =document.getElementById('slider2').value;
+            
+            var nation =document.getElementById('nation').value;
+            
+            
+            var ID =document.getElementById('ID').value;
+            
+            var select =document.getElementById('select').value;
+            
+            var patho =document.getElementById('patho').value;
+            
+            
+            var chir =document.getElementById('chir').value;
+            
+            var allerg =document.getElementById('allerg').value;
+            
+            var treat =document.getElementById('treat').value;
+            
+            var doctor =document.getElementById('doctor').value;
+            
+            var spe =document.getElementById('spe').value;
+            
+            var donselect =document.getElementById('donselect').value;
+            
+            localStorage.setItem('fname' , fname);
+            
+            
+            localStorage.setItem('lname' , lname);
+            
+            localStorage.setItem('bday' , bday);
+            
+            localStorage.setItem('sexe' , radioval);
+            
+            localStorage.setItem('slider1' , slider1);
+            
+            localStorage.setItem('slider2' , slider2);
+            
+            
+            localStorage.setItem('nation' , nation);
+            localStorage.setItem('ID' , ID);
+            
+            localStorage.setItem('select' , select);
+            
+            localStorage.setItem('patho' , patho);
+              
+            localStorage.setItem('chir' , chir);  
+             
+            localStorage.setItem('allerg' , allerg);
+            
+            localStorage.setItem('treat' , treat); 
+            
+            localStorage.setItem('doctor' , doctor); 
+            
+            localStorage.setItem('spe' , spe); 
+              
+            localStorage.setItem('donselect' , donselect); 
+            
+            
+            
+            $( "#popup1" ).popup( "open" );
+          }
+          
+          
+                
+                
+          function loadData(){
+              //test
+             
+               
+             //var myWin=$.mobile.changePage('#page4');
+                   
+                
+               
+              
+            
+           //test popup
+           
+           //var myWin=$( "#popup1" ).popup( "open" );
+           
+        //test failed conclusion
+            //var site="#page4";
+            //var myWin = window.open("","","menubar=0,scrollbars=0");
+            //myWin.document.write('#page4');
+            
+          //fin test  
+            
+            //var myWin = window.open("#page4", "_parent","width=600,height=900");//à modifier!!!!!!!!!!!!
+          
+           
+            
+        
+           var fname = localStorage.getItem('fname');
+           var lname = localStorage.getItem('lname');
+           var bday = localStorage.getItem('bday');
+           var sexe = localStorage.getItem('sexe');
+           
+           
+           var slider1 = localStorage.getItem('slider1');
+           var slider2 = localStorage.getItem('slider2');
+           var nation = localStorage.getItem('nation');
+           var ID = localStorage.getItem('ID');
+           var select = localStorage.getItem('select');
+           var patho = localStorage.getItem('patho');
+          
+           var chir = localStorage.getItem('chir');
+           var allerg = localStorage.getItem('allerg');
+           var treat = localStorage.getItem('treat');
+           var doctor = localStorage.getItem('doctor');
+           var spe = localStorage.getItem('spe');
+            
+           var donselect = localStorage.getItem('donselect'); 
+            
+            //myWin.document.write('<title>Données récupérées </title>');
+            
+            
+            //alert("Nom : "+ fname + "")  //a modif
+            //window.location="#page4";
+            //$("#page4").load("Nom : " + fname);
+            
+        
+        
+            //myWin.document.write("Nom: " +  fname +"<br>");
+            //myWin.document.write("Prénom: " +  lname +"<br>");
+            
+            
+            
+            //myWin.document.write("Taille (en cm): " + slider1 +"<br>");
+            
+            //myWin.document.write("<input type='button' id='btnReturn' value='Retour'  onclick='window.close()' />");
+            
+            $("#content4").html(function(){
+                // attacher les retours sinn il ne remet que la first ligne ou crée une autre fonction avec return
+           
+    return "Nom: " +  fname +"<br>"+"Prénom: " +  lname +"<br>"+ "Date de naissance: " + bday +"<br>"+"Sexe: " + sexe  +"<br>"+"Taille (en cm): " + slider1 +"<br>"+"Poids (en kg): " + slider2 +"<br>"+"Nationalité: " + nation +"<br>"+"Numéro de Registre National: "+ ID +"<br>"+"Groupe Sanguin: "+ select +"<br>"+"Pathologies: "+ patho +"<br>"+"Chirurgies: " +  chir +"<br>"+"Allergies: " +  allerg +"<br>"+"Traitements suivis: " +  treat +"<br>"+"Médecin Traitant: " +  doctor +"<br>"+"Médecins Spécialisés: " +  spe +"<br>"+"Donneur d'organe: " +  donselect +"<br>";
+                       
+            });
+            
+            
+          };
+          
+          function clearData(){
+                       
+              //localStorage.clear();
+              $( "#popup2" ).popup( "open" );// ouvre le popup avec le choix
+              
+             // $( "#popup3" ).popup( "open" );
+          };
+          
+              //failed test
+              //$( "#popup2" ).popup( "open" , { dismissible: false });
+              //$( "#popup2" ).popup( "open" );
+              //$( "#popup2" ).popup( "open" );
+              //var conditionYes =$("yes").on("click", function() { });
+              //var conditionNo =$("cancel").on("click", function() {
+              
+                        //$( "#popup2" ).popup( "close" );
+                    
+                       // });
+                //localStorage.clear();
+                //$( "#popup2" ).popup( "close" );    
+                    //});             
+                    //document.getElementById("yes").addEventListener("click", function() { 
+                
+                    //localStorage.clear();
+                   // $( "#popup2" ).popup( "close" );
+    
+                   //});
+                    
+                    
+                   // document.getElementById("cancel").addEventListener("click", function() { 
+                
+                    
+                   // $( "#popup2" ).popup( "close" );
+    
+                  //  });
+                
+                
+              //  $("yes").on("click", function() { 
+                
+                   // localStorage.clear();
+                  //  $( "#popup2" ).popup( "close" );
+    
+                  //  });
+        
+        
+        
+                
+        
+                //$("cancel").on("click", function() { 
+              
+                 
+                 //$( "#popup2" ).popup( "close" );
+                    //});
+          // $( "#popup2" ).popup( "open" );
+                
+        
+             //if (conditionYes) {
+                    
+                    
+              
+                        //localStorage.clear();
+                       // $( "#popup2" ).popup( "close" );    
+                                
+                    
+                    
+                    
+                    
+	// code to be executed if condition is true
+                    //}
+               // else {
+                    //conditionNo;
+                    
+                    
+              
+                 
+                 
+                   
+                    
+                    
+	// code to be executed if condition is false
+            //}
+            
+            
+            //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Urgences +Json!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            
+            var g_data;
+            var stack = [];
+		//var donnees;
+		function click_cat(categorie) {
+			// si ce n'est pas l'initialisation, on redefinit le referenciel
+			if(categorie != "init")
+			{
+			        stack.push({data: g_data, title: categorie});
+					g_data = g_data[categorie];
+					$('#h3-title').text(categorie);
+					
+			}
+			else 
+			{
+				set_g_data();
+			    $('#h3-title').text('Urgences');
+                stack.pop({data: g_data, title: categorie});
+			}
+			
+			var cats=g_data;			
+			
+			$("#content3").text("");
+			var c = document.getElementById("content3");			
+			
+			if (typeof g_data === 'string') //Si on est au text final
+			{
+			   	
+			
+				
+				
+			
+				    c.innerHTML += g_data + '<br>';
+				    
+				    
+				
+			        
+			        
+			    } 
+			    //Astuce 2 correspond à la valeur de Noyade.Demarche
+			else if( g_data === 2){
+				    
+			
+				    
+				   document.location.href="#Demarche" ;
+				   // location.replace('#Demarche')
+				}
+			    
+			    
+			    
+			    
+			    
+			    
+			    
+			    
+			    
+			    // on a modif ici
+			    
+			    //else{
+			        
+			    //    c.innerHTML += g_data + '<br>';
+			//    }
+			
+			else // display cats
+			{
+				for (var prop in cats) {
+					c.innerHTML += '<a onclick="click_cat(\''+prop+'\')" data-role="button" data-theme="c">' + prop + '</a><br>';
+					$("#content3").trigger("create");
+				}
+			}
+		};
+		
+		function set_g_data() {				
+				$.ajax({
+					url: "json/Test.json",
+					async: false,
+					dataType: 'json',
+					success: function(data) {
+						g_data = data;
+						
+					
+						
+						
+					},
+					error: function(error, texterror, other){
+					}
+				});	
+		};
+		
+		$(document).ready(function() {
+			set_g_data();
+			click_cat("init");
+		});
+              
+              
+                 
+          
+          
+          
+            
+            
+        </script>
+        
+        
+        
+        
+    </head>
+    
+    <body>
+        
+        <!-- début page d'accueil-->
+         <div data-role="page" id="home" data-theme="a">
+        
+        <div data-role="header" data-theme="a" id="h1" >
+            <h1> Premiers Soins </h1>
+            
+            
+        </div>
+<!-- /header -->   
+
+        <div data-role="content" id="content1" data-theme="a">
+            
+            
+            <ul data-role="listview" >
+                <li><a href="#page2" data-transition='flip'>
+         <!--thumbnails--> <img src="css/themes/images/Digit.png" class='ui-li-has-thumb'/> <!-- classe importante sinn l'image ne se voit pas bien-->
+                        <h3> Fiche personnelle </h3>
+                        <p>Vous pouvez créer votre carnet de santé virtuel</p>
+                        
+                    </a>
+               </li> 
+               
+                <li><a href="#page3" data-transition='flip'>
+                       <img src="css/themes/images/redcross.png" class='ui-li-has-thumb'/> 
+                       
+                        <h3> Urgences </h3>
+                        <p>Vous pouvez consulter toutes les informations nécessaires à votre santé</p>
+                        <p>Informations à consulter en cas d'accidents</p>
+                        <p>Mesures de sécurité</p>
+                        <p>...</p>
+                    </a>
+               </li>
+           </ul>
+            
+            
+  
+    
+  </div>
+
+
+
+            
+            
+        
+<!-- /content -->    
+
+        <div data-role="footer" data-theme="a" data-position="fixed" data-id="foot " id="navbar"> <!--je test juste la navbar-->
+            <div data-role="navbar">
+                <ul>
+                    <li><a href='#home' data-role="button" data-icon="home" id="homefoot" data-transition='slideup'>Home</a></li>
+                    <li><a href='#page2' data-role="button" data-icon="grid" id="fichefoot" data-transition='slideup'>Fiche Perso</a></li>
+                    <li><a href='#page3' data-role="button" data-icon="plus" id="urgfoot" data-transition='slideup'>Urgences</a></li>
+                </ul> 
+            </div>    
+        </div>
+
+       
+    </div>
+             
+        
+        
+        <!-- fin page d'accueil-->
+        
+        
+        <!--début  fiche perso-->
+        
+        <div data-role="page" id="page2" data-theme="b" ><!-- avec class="ui-responsive-panel" le form s'adapte 
+                                                         quand on ouvre le panel mais dans notre cas nous avons des radiobuttons=>aucun effet-->
+            <div data-role="header" data-theme="b" id="h2" >
+            <h1> Fiche personnelle  </h1>
+            
+            
+            </div>
+            
+            
+            
+         <div data-role="content" data-theme="b" id="content2">
+             
+             <!--Test-->
+             <form method="post" action="form.asp" id="myForm">
+       <div class="ui-field-contain ui-page-theme-b"> <!-- on y change la couleur,... seulement du formulaire-->
+        
+        <div data-role="fieldcontain" >   
+        <label for="fname">Nom:</label>
+    	<input type="text" name="fname" id="fname" placeholder="Veuillez introduire votre nom">
+    	
+    	<label for="lname">Prénom:</label>
+    	<input type="text" name="lname" id="lname" placeholder="Veuillez introduire votre prénom">
+        
+        <label for="bday">Date de Naissance:</label>
+    	<input  type="date" name="bday" id="bday" >
+        
+        </div>
+        
+        <div data-role="fieldcontain" > 
+        <fieldset data-role="controlgroup" >
+        <legend>Sexe:</legend>
+                      <label for="male">Homme</label>
+                      <input type="radio" name="gender" id="male" value="Homme">
+                      <label for="female">Femme</label>
+                      <input type="radio" name="gender" id="female" value="Femme"> 
+        </fieldset>
+        
+        </div>
+      
+ 	   
+            <div data-role="fieldcontain">
+	    <label for="slider1">Taille (en cm):</label> <!-- pas visible à cause du browser utilisé-->
+	    <input   type="range" name="slider1" id="slider1" value="170" min="50" max="250"  data-highlight="true" data-show-value="true" data-popup-enabled="true"  data-theme='b' data-track-theme="b"/> 
+            </div>
+        
+	    <div data-role="fieldcontain">
+	    <label for="slider2">Poids (en kg):</label> <!-- pas visible à cause du browser utilisé-->
+	    <input   type="range" name="slider2" id="slider2" value="70" min="25" max="150"  data-highlight="true" data-show-value="true" data-popup-enabled="true"  data-theme='b' data-track-theme="b" />
+        
+ 	    
+            
+            <div data-role="collapsible"  data-collapsed="true" data-theme="b"  data-content-theme="b" >
+            <h4> Remarque </h4>
+            <p>Si votre poids n'est pas compris dans cet intervalle ou votre IMC n'est pas normale, veuillez consulter votre médecin </p>
+            </div>
+            </div>
+           
+           
+           
+           <div data-role="fieldcontain">
+                <label for="nation">Nationalité:</label>
+                <input type="text" name="nation" id="nation" placeholder="Nationalité">
+               
+               
+            </div>
+        
+ 	    
+ 	    <div data-role="fieldcontain">
+	
+
+            
+            <label for="ID">Numéro de registre nationale:</label>
+    	    <input  type="text" name="ID" id="ID" required pattern="\d{11}|\d{6} \d{3} \d{2}|\d{6}.\d{3}.\d{2}" placeholder="xxxxxx.xxx.xx" MAXLENGTH="13">
+ 	     
+ 	    
+            
+            
+ 	     <div data-role="collapsible"  data-collapsed="true" data-theme="b"  data-content-theme="b" >
+        <h4> Informations complèmentaires </h4>
+        <p> *Vous trouverez votre numéro de registre national dans le coin supérieur gauche au verso de votre carte d'identité</p>
+        <p> *Veuillez respectez le format d'écriture ex: 870214.375.95</p>
+        </div>
+            </div>
+        
+            <div data-role="fieldcontain">
+                    <label for="select">Groupe sanguin:</label>
+                    <select name="select" id="select" data-native-menu="false"> <!--n'est pas activé directement à la création de lapage-->
+                        <option value="N/A" data-placeholder="true">Choisissez en un...</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+        
+        
+                    </select>
+            </div>
+        
+        <div data-role="fieldcontain" >
+        
+        <label for="patho">Pathologies:</label>
+        <textarea name="patho" id="patho" placeholder="diabétique, problèmes cardiaques..."></textarea>
+        
+        
+        <label for="chir">Chirurgies:</label>
+        <textarea name="chir" id="chir" placeholder="pace maker, broches..."></textarea>
+        
+        
+        <label for="allerg">Allergies:</label>
+        <textarea name="allerg" id="allerg" placeholder="allergie connue (à un médicament,...)"></textarea>
+        
+        
+        <label for="treat">Traitements suivis:</label>
+        <textarea name="treat" id="treat" placeholder="traitement actuel"></textarea>
+        
+        
+        <label for="doctor">Médecin traitant:</label>
+    	<input  type="text" name="doctor" id="doctor" placeholder="médecin principal" >
+        
+        <label for="spe">Médecins spécialisés:</label>
+        <textarea name="spe" id="spe" placeholder="médecin spécialiste + spécialité,..."></textarea>
+        
+        <div data-role="fieldcontain">
+            
+             <label for="flip">Donneur d'organe:</label>
+                    <select name="donselect" id="donselect" data-role='slider'> <!-- la valeur par défaut sera Non -->
+                        <option value="Non">Non</option>
+                        <option value="Oui">Oui</option>
+                       
+        
+        
+                    </select>
+            
+        </div>
+        
+            
+        
+        <div data-role="fieldcontain">
+            
+            
+            
+            
+            
+            <input type="button" value="Enregistrer" id="enregistrer" data-icon="check" data-iconpos="top" data-inline="true" >
+           <!-- <input type="button" value="Récupérer" id="rec" data-icon="search" data-iconpos="top" data-inline="true" >-->
+           
+           <a href="#page4" data-role="button" data-transition='pop' id="rec" data-icon="search" data-iconpos="top" data-inline="true">Récupérer</a>
+            <input type="button" value="Reset" id="reset"  data-icon ="alert" data-iconpos="top" data-inline="true" >
+           
+        </div>
+        
+      
+           <div data-role="fieldcontain">
+            
+                <div data-role="collapsible"  data-collapsed="true" data-theme="b"  data-content-theme="b" >
+        <h4> Informations sur la sauvegarde! </h4>
+        <p> Faites glisser votre écran vers la gauche</p>
+     
+        </div>
+            
+            
+            
+            
+           
+            </div>
+        
+        
+        </div>
+        
+        
+             
+             <!-- fin Test-->
+             
+          
+         </div>
+                  <!--panel-->
+                 <div data-role="panel"  id="myPanel" data-theme="a" data-display="overlay" data-position="right" ><!-- overlay comme ça notre panel couvre le form-->
+                     <a href="" data-role="button"  data-rel="close">Close Me!</a> 
+                     
+                     
+                     <p>Les données enregistrées restent stockées dans la mémoire de votre mobile device.
+                         Si vous souhaitez revendre ce dernier, n'oubliez pas d'effacer vos données personnelles
+                         afin d'éviter tout malentendu.Merci à vous! 
+                     
+                     
+                     </p>
+                 </div>
+                 <!--popups-->
+                <div data-role="popup" id="popup1" data-transition="slideup" data-theme="a">
+                    <p>Vos données ont bien été sauvergadées!</p>
+                </div>
+                 
+                <div data-role="popup" id="popup2" data-transition="pop" data-theme="a"   ><!-- data-dismissible="" je crée une dialog box modale on ne sait   pas cliquer à l'extérieur pour la fermer et je le laisse 
+                                                                                                              sans argument comme ça je sais le modif dans le js-->
+                 <div data-role="header" data-theme="a" >
+                        <h1> Last Words?!</h1>
+                    </div>                                                                                  
+                    <div data-role="content" data-theme="a" >
+                
+                        <input type="button" value="Oui" id="yesErase"  data-icon ="check"  data-inline="true">
+                        <input type="button" value="Annuler" id="cancel"  data-icon ="delete"  data-inline="true">
+                     
+                    </div>
+                </div>
+                
+                
+                
+                
+                <div data-role="popup" id="popup3" data-transition="slideup" data-theme="a">
+                    <p>Vos données ont bien été effacées!</p>
+                </div>
+                   <!-- <div data-role="header" data-theme="a" >
+                        <h1> Last Words?!</h1>
+                    </div>
+                    
+                    <div data-role="content" data-theme="a" >
+                     
+                     
+                     <input type="button" value="Oui" id="cancel"  data-icon ="check"  data-inline="true">
+                     <input type="button" value="Annuler" id="cancel"  data-icon ="delete"  data-inline="true">
+                     </div>
+                    
+                    <div data-role="footer" data-theme="a">
+                        <h2>Suppression de données</h2> 
+                        
+                    </div>
+                    
+                </div> -->
+                   
+                   
+                   
+                 
+                 <!--dialog modal test
+                 
+                 <div data-role='dialog' id='dialogM' data-theme='a'>
+                     
+                     <p>Test</p>
+                     
+                 </div>-->
+                 
+                 
+                 
+                 
+                 
+             </form><!--fin du form-->
+         
+             
+             
+            
+             <div data-role="footer"  data-theme="b" id="foot2" ><!--data-position="fixed"-->
+             <a href="#home" data-transition='slide' data-icon="back">Retour</a>
+             
+           </div>  
+        </div>
+            </div>
+            <!-- fin fiche perso-->
+            
+            
+            
+            
+            
+            
+        <!--début  Urgences-->
+        
+        <div data-role="page" id="page3" data-theme="c">
+            <div data-role="header" data-theme="c" id="h3" >
+                
+            <a href="#home" data-transition='slide' data-icon="home">Home</a>
+             
+            <h1 id="h3-title"> Urgences </h1>
+            
+            
+            </div>
+            
+            
+            
+         <div data-role="content" data-theme="c" id="content3">
+          
+            
+             
+             
+         </div>
+            
+            
+         <div data-role="footer"  data-theme="c" id="foot3" data-position="fixed">
+             <a onclick='click_cat("init")' data-role="button"  data-icon="back" >Urgences Sommaire</a><!-- add data  reverse back button pour back dans les categories-->
+             
+           </div>  
+        </div>
+            <!-- fin Urgences-->
+            
+            
+            
+            
+            <!--Données enregistrées-->
+           <div data-role="page" id="page4" data-theme="b">
+            <div data-role="header" data-theme="b" id="h4" >
+            <h1> Données enregistrées </h1>
+            <a href="#page2" data-direction="reverse" data-icon="back">Retour</a>
+            
+            </div>
+            
+            
+            
+         <div data-role="content" data-theme="b" id="content4">
+          
+            
+             
+             
+         </div>
+            
+            
+         <div data-role="footer"  data-theme="b" id="foot4" data-position="fixed">
+             
+             
+           </div>  
+        </div> 
+            
+            
+            
+      
+           <!-- /test--> 
+           <!-- Demarche--> 
+           
+              <div data-role="page" id="Demarche" data-theme="d">
+            <div data-role="header" data-theme="d" id="h5" >
+                
+                
+            <h1><img border="0" src="css/themes/images/noyade2.png" alt="Logo, Noyade" />  Noyade Démarche</h1>
+            <a href="#page3" data-direction="reverse" data-icon="back">Retour</a>
+            
+            </div>
+            
+            
+            
+         <div data-role="content" data-theme="d" id="content5">
+             
+           <center><h1>Que faire?!</h1></center>
+          <center><img border="0" src="css/themes/images/NoyadeIntro.jpg"  /></center>
+                                    <center>1.<span class='firstLetter'>P</span>ositionnement</center> <!-- class du span se trouve dans mon custom.css-->
+                                    <center>2.<span class='firstLetter'>O</span>bservation</center>
+                                    <center>3.<span class='firstLetter'>S</span>tabilisation</center>
+                                    <center>4.<span class='firstLetter'>A</span>ppel d’urgence</center>
+                                    <center>5.<span class='firstLetter'>S</span>oins / <span class='firstLetter'>S</span>urveillance</center>
+             
+             
+         </div>
+            
+            
+         <div data-role="footer"  data-theme="d" id="foot5" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href='#home' data-role="button" data-icon="home" id="homefoot" data-transition='slideup'>Home</a></li>
+                    
+                    <li><a href='#Protection' data-role="button" data-icon="forward" id="forw0" data-transition='slideup'>Suivant</a></li>
+                </ul> 
+            </div>  
+             
+           </div>  
+        </div> 
+            
+            <!-- /Demarche--> 
+            
+            
+            
+            <!-- protection--> 
+           
+              <div data-role="page" id="Protection" data-theme="d">
+            <div data-role="header" data-theme="d" id="h6" >
+                
+                
+            <h1><span class='firstLetter'>P</span>ositionnement</h1>
+            
+            
+            </div>
+            
+            
+            
+         <div data-role="content" data-theme="d" id="content6">
+             <h1 style='text-decoration: underline'>Procédure à suivre:</h1><!--souligne le titre ac ce style-->
+           <p style='text-indent: 50px'>- Sortir la personne de l’eau s’il y a moyen de le faire sans vous mettre en danger (pas besoin de jouer les héros en sautant à l’eau)</p><!--indendation de la first ligne-->
+           <p style='text-indent: 50px'>- Couvrir la victime avec une couverture ou un vêtement chaud</p>
+            <p style='text-indent: 50px'>-<img border="0" src="css/themes/images/iconeAttention.png"  /> Si la personne a coulé -> APPELER LE <span class='firstLetter'>112</span></p>
+            
+            <!-- a href vers isei1 call section-->
+         </div>
+            
+            
+         <div data-role="footer"  data-theme="d" id="foot6" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    
+                    <li><a href='#Demarche' data-role="button" data-icon="back" id="back1" data-transition='slidedown'>Précédent</a></li>
+                    <li><a href='#home' data-role="button" data-icon="home" id="homefoot" data-transition='flip'>Home</a></li>
+                    <li><a href='#Observation' data-role="button" data-icon="forward" id="forw1" data-transition='slideup'>Suivant</a></li>
+                </ul> 
+            </div>  
+             
+           </div>  
+        </div> 
+            
+            <!-- /protection--> 
+            
+            
+            
+             <!-- observation--> 
+           
+              <div data-role="page" id="Observation" data-theme="d">
+            <div data-role="header" data-theme="d" id="h7" >
+                
+                
+            <h1><span class='firstLetter'>O</span>bservation</h1>
+            
+            
+            </div>
+            
+            
+            
+         <div data-role="content" data-theme="d" id="content7">
+             <h1 style='text-decoration: underline'>Procédure à suivre:</h1><!--souligne le titre ac ce style-->
+           
+           
+           
+                   <form>
+                        <fieldset data-role="controlgroup" data-type="horizontal">
+                            <legend>- La victime respire-t-elle ?</legend>
+                            <input type="radio" name="radioResp" id="radioRespA" value="Oui" >
+                            <label for="radioRespA">Oui</label>
+                            <input type="radio" name="radioResp" id="radioRespB" value="Non">
+                            <label for="radioRespB">Non</label>
+                            
+                        </fieldset>
+                    </form>
+         </div>
+         
+            
+            
+         <div data-role="footer"  data-theme="d" id="foot7" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    
+                    <li><a href='#Protection' data-role="button" data-icon="back" id="back2" data-transition='slidedown'>Précédent</a></li>
+                    <li><a href='#home' data-role="button" data-icon="home" id="homefoot" data-transition='flip'>Home</a></li>
+                    <li><a href='#' data-role="button" data-icon="forward" id="forw2" data-transition='slideup'>Suivant</a></li>
+                </ul> 
+            </div>  
+             
+           </div>  
+        </div> 
+            
+            <!-- /observation--> 
+            
+            
+            
+            
+             <!-- observationA yes resp--> 
+           
+              <div data-role="page" id="ObservationA" data-theme="d">
+            <div data-role="header" data-theme="d" id="h8" >
+                
+                
+            <h1><span class='firstLetter'>O</span>bservation</h1>
+            <h2>Path Yes</h2>
+            
+            </div>
+            
+            
+            
+         <div data-role="content" data-theme="d" id="content8">
+             <h1 style='text-decoration: underline'>Procédure à suivre:</h1><!--souligne le titre ac ce style-->
+           
+           
+           
+                   <form>
+                        <fieldset data-role="controlgroup" data-type="horizontal">
+                            <legend>- Est-elle consciente ? </legend>
+                            <input type="radio" name="radioConsc" id="radioConscA" value="Oui" >
+                            <label for="radioConscA">Oui</label>
+                            <input type="radio" name="radioConsc" id="radioConscB" value="Non">
+                            <label for="radioConscB">Non</label>
+                            
+                        </fieldset>
+                    </form>
+         </div>
+         
+            
+            
+         <div data-role="footer"  data-theme="d" id="foot8" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    
+                    <li><a href='#Observation' data-role="button" data-icon="back" id="back3" data-transition='slidedown'>Précédent</a></li>
+                    <li><a href='#home' data-role="button" data-icon="home" id="homefoot" data-transition='flip'>Home</a></li>
+                    <li><a href='#' data-role="button" data-icon="forward" id="forw3" data-transition='slideup'>Suivant</a></li>
+                </ul> 
+            </div>  
+             
+           </div>  
+        </div> 
+            
+            <!-- /observationA--> 
+            
+            
+            
+             <!-- observationB No resp--> 
+           
+              <div data-role="page" id="ObservationB" data-theme="d">
+            <div data-role="header" data-theme="d" id="h9" >
+                
+                
+            <h1><span class='firstLetter'>O</span>bservation</h1>
+            <h2>Path No</h2>
+            
+            </div>
+            
+            
+            
+         <div data-role="content" data-theme="d" id="content9">
+             <h1 style='text-decoration: underline'>Procédure à suivre:</h1><!--souligne le titre ac ce style-->
+           
+           
+           <p style='text-indent: 50px'>-<img border="0" src="css/themes/images/iconeAttention.png"  />  APPELER LE <span class='firstLetter'>112</span></p>
+           
+           
+         </div>
+         
+            
+            
+         <div data-role="footer"  data-theme="d" id="foot9" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    
+                    <li><a href='#Observation' data-role="button" data-icon="back" id="back4" data-transition='slidedown'>Précédent</a></li>
+                    <li><a href='#home' data-role="button" data-icon="home" id="homefoot" data-transition='flip'>Home</a></li>
+                    <li><a href='#StabilisationNo' data-role="button" data-icon="forward" id="forw4" data-transition='slideup'>Suivant</a></li>
+                </ul> 
+            </div>  
+             
+           </div>  
+        </div> 
+            
+            <!-- /observationB--> 
+            
+            
+            
+            
+            
+            
+         <!-- Stabilisation yes yes--> 
+           
+              <div data-role="page" id="StabilisationYesYes" data-theme="d">
+            <div data-role="header" data-theme="d" id="h10" >
+                
+                
+            <h1><span class='firstLetter'>S</span>tabilisation</h1>
+            <h2>Path Yes-Yes</h2>
+            
+            </div>
+            
+            
+            
+         <div data-role="content" data-theme="d" id="content10">
+             <h1 style='text-decoration: underline'>Procédure à suivre:</h1><!--souligne le titre ac ce style-->
+           
+           
+           <p style='text-indent: 50px'>- Assoir la personne pour lui permettre de respirer plus facilement</p>
+                
+         </div>
+         
+            
+            
+         <div data-role="footer"  data-theme="d" id="foot10" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    
+                    <li><a href='#ObservationA' data-role="button" data-icon="back" id="back5" data-transition='slidedown'>Précédent</a></li>
+                    <li><a href='#home' data-role="button" data-icon="home" id="homefoot" data-transition='flip'>Home</a></li>
+                    <li><a href='#CallYesYes' data-role="button" data-icon="forward" id="forw5" data-transition='slideup'>Suivant</a></li>
+                </ul> 
+            </div>  
+             
+           </div>  
+        </div> 
+            
+            
+                     <!-- /Stabilisation yes yes--> 
+
+
+ <!-- Stabilisation yes no--> 
+           
+              <div data-role="page" id="StabilisationYesNo" data-theme="d">
+            <div data-role="header" data-theme="d" id="h11" >
+                
+                
+            <h1><span class='firstLetter'>S</span>tabilisation</h1>
+            <h2>Path Yes-No</h2>
+            
+            </div>
+            
+            
+            
+         <div data-role="content" data-theme="d" id="content11">
+             <h1 style='text-decoration: underline'>Procédure à suivre:</h1><!--souligne le titre ac ce style-->
+           
+           
+           <p style='text-indent: 50px'>- Mettre la personne en position latérale de sécurité </p>
+               
+            <img border="0" src="css/themes/images/Lateral.gif"  /> 
+            
+            
+         </div>
+         
+            
+            
+         <div data-role="footer"  data-theme="d" id="foot11" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    
+                    <li><a href='#ObservationA' data-role="button" data-icon="back" id="back6" data-transition='slidedown'>Précédent</a></li>
+                    <li><a href='#home' data-role="button" data-icon="home" id="homefoot" data-transition='flip'>Home</a></li>
+                    <li><a href='#CallYesNo' data-role="button" data-icon="forward" id="forw6" data-transition='slideup'>Suivant</a></li>
+                </ul> 
+            </div>  
+             
+           </div>  
+        </div> 
+            
+            
+                     <!-- /Stabilisation yes no--> 
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     <!-- Stabilisation  no--> 
+           
+              <div data-role="page" id="StabilisationNo" data-theme="d">
+            <div data-role="header" data-theme="d" id="h12" >
+                
+                
+            <h1><span class='firstLetter'>S</span>tabilisation</h1>
+            <h2>Path No</h2>
+            
+            </div>
+            
+            
+            
+         <div data-role="content" data-theme="d" id="content12">
+             <h1 style='text-decoration: underline'>Procédure à suivre:</h1><!--souligne le titre ac ce style-->
+           
+                     <form>
+      
+      
+                              <div data-role="fieldcontain">
+                                  
+                                  
+                                  <p style='text-indent: 50px'>- Allonger la victime sur le dos, la tête en arrière </p>
+                                  <p style='text-indent: 50px'>- Vérifier qu’il n’y a rien dans la bouche de la victime (retirer les prothèses dentaires)</p>
+                                  <p style='text-indent: 50px'>- Commencer le bouche à bouche pour faire sortir l’eau des poumons</p>
+          
+          
+          
+          
+                              </div>
+                              
+                              
+                               <div data-role="fieldcontain">
+                                 <p style='text-indent: 50px'> o Procédure : SOUFFLEZ 2 FOIS – RESPIREZ – RECOMMENCEZ </p> 
+                                  
+                                 <img border="0" src="css/themes/images/Sec1.gif"  /> 
+          
+          
+          
+                              </div>
+                              
+                              
+                              <div data-role="fieldcontain">
+                                 <p style='text-indent: 50px'> - Regarder si la poitrine se soulève, ce qui prouvera que les voies pulmonaires sont dégagées </p> 
+                                  
+                                 <img border="0" src="css/themes/images/Sec2.jpg"  /> 
+          
+          
+          
+                              </div>
+                              
+                              
+                              
+                               <div data-role="fieldcontain">
+                                 <p style='text-indent: 50px'> - Prendre le pouls, c’est à dire, sentir un battement lorsque l’on pose son doigt sur l’artère </p> 
+                                  
+                                 <img border="0" src="css/themes/images/Sec3resized.gif"  /> 
+          
+          
+          
+                              </div>
+                              
+                              
+                              
+                              <div data-role="fieldcontain">
+                                 <p style='text-indent: 50px'> - Si pas de pouls, commencer le massage cardiaque.</p> 
+                                 <p style='text-indent: 50px'>o Procédure : MASSAGE CARDIAQUE 30 FOIS, puis SOUFFLEZ 2 FOIS – RESPIREZ – RECOMMENCEZ</p>
+                                  
+                                   <img border="0" src="css/themes/images/Sec4.gif"  />
+          
+          
+                              </div>
+                              
+                              
+                              <div data-role="fieldcontain">
+                                
+                                   <img border="0" src="css/themes/images/Sec5resized.jpg"  />
+          
+          
+                              </div>
+                              
+                              
+                              <div data-role="fieldcontain">
+                                
+                                   <img border="0" src="css/themes/images/Sec6.jpg"  />
+          
+          
+                              </div>
+      
+      
+      
+      
+                     </form>
+            
+            
+         </div>
+         
+            
+            
+         <div data-role="footer"  data-theme="d" id="foot12" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    
+                    <li><a href='#ObservationB' data-role="button" data-icon="back" id="back7" data-transition='slidedown'>Précédent</a></li>
+                    <li><a href='#home' data-role="button" data-icon="home" id="homefoot" data-transition='flip'>Home</a></li>
+                    <li><a href='#SoinsNo' data-role="button" data-icon="forward" id="forw7" data-transition='slideup'>Suivant</a></li>
+                </ul> 
+            </div>  
+             
+           </div>  
+        </div> 
+            
+            
+                     <!-- /Stabilisation  no--> 
+                     
+                     
+                     
+                     
+                     
+              <!-- Soins  no--> 
+           
+              <div data-role="page" id="SoinsNo" data-theme="d">
+            <div data-role="header" data-theme="d" id="h13" >
+                
+                
+            <h1><span class='firstLetter'>S</span>oins / <span class='firstLetter'>S</span>urveillance</h1>
+            <h2>Path No</h2>
+            
+            </div>
+            
+            
+            
+         <div data-role="content" data-theme="d" id="content13">
+             <h1 style='text-decoration: underline'>Procédure à suivre:</h1><!--souligne le titre ac ce style-->
+           <p style='text-indent: 50px'>- Faire cela jusqu’à ce que la victime recommence à respirer ou jusqu’à l’arrivée des urgences </p> 
+            
+         </div>
+         
+            
+            
+         <div data-role="footer"  data-theme="d" id="foot13" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    
+                    <li><a href='#StabilisationNo' data-role="button" data-icon="back" id="back8" data-transition='slidedown'>Précédent</a></li>
+                    <li><a href='#home' data-role="button" data-icon="home" id="homefoot" data-transition='flip'>Home</a></li>
+                    <li><a href='#BiblioNo' data-role="button" data-icon="forward" id="forw8" data-transition='slideup'>Suivant</a></li>
+                </ul> 
+            </div>  
+             
+           </div>  
+        </div> 
+            
+            
+                     <!-- /Soins  no--> 
+                     
+                     
+                       <!-- Call yes yes--> 
+           
+              <div data-role="page" id="CallYesYes" data-theme="d">
+            <div data-role="header" data-theme="d" id="h14" >
+                
+                
+            <h1><span class='firstLetter'>A</span>ppel d'urgence</h1>
+            <h2>Path Yes-Yes</h2>
+            
+            </div>
+            
+            
+            
+         <div data-role="content" data-theme="d" id="content14">
+           
+           <p style='text-indent: 50px'>-  Composer le <span class='firstLetter'>112</span> et expliquer calmement la situation aux services de secours</p> 
+
+         </div>
+         
+            
+            
+         <div data-role="footer"  data-theme="d" id="foot14" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    
+                    <li><a href='#StabilisationYesYes' data-role="button" data-icon="back" id="back9" data-transition='slidedown'>Précédent</a></li>
+                    <li><a href='#home' data-role="button" data-icon="home" id="homefoot" data-transition='flip'>Home</a></li>
+                    <li><a href='#SoinsYesYes' data-role="button" data-icon="forward" id="forw9" data-transition='slideup'>Suivant</a></li>
+                </ul> 
+            </div>  
+             
+           </div>  
+        </div> 
+            
+            
+                     <!-- /Call yes yes  --> 
+                     
+                     
+                     
+                     
+                     
+                       <!-- Call yes No--> 
+           
+              <div data-role="page" id="CallYesNo" data-theme="d">
+            <div data-role="header" data-theme="d" id="h15" >
+                
+                
+            <h1><span class='firstLetter'>A</span>ppel d'urgence</h1>
+            <h2>Path Yes-No</h2>
+            
+            </div>
+            
+            
+            
+         <div data-role="content" data-theme="d" id="content15">
+           
+           <p style='text-indent: 50px'>-  Composer le <span class='firstLetter'>112</span> et expliquer calmement la situation aux services de secours</p> 
+
+         </div>
+         
+            
+            
+         <div data-role="footer"  data-theme="d" id="foot15" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    
+                    <li><a href='#StabilisationYesNo' data-role="button" data-icon="back" id="back10" data-transition='slidedown'>Précédent</a></li>
+                    <li><a href='#home' data-role="button" data-icon="home" id="homefoot" data-transition='flip'>Home</a></li>
+                    <li><a href='#SoinsYesNo' data-role="button" data-icon="forward" id="forw10" data-transition='slideup'>Suivant</a></li>
+                </ul> 
+            </div>  
+             
+           </div>  
+        </div> 
+            
+            
+                     <!-- /Call yes No  --> 
+                     
+                     
+                     
+                     
+                     
+                         <!-- Soins Yes Yes--> 
+           
+              <div data-role="page" id="SoinsYesYes" data-theme="d">
+            <div data-role="header" data-theme="d" id="h16" >
+                
+                
+            <h1><span class='firstLetter'>S</span>oins / <span class='firstLetter'>S</span>urveillance</h1>
+            <h2>Path Yes-Yes</h2>
+            
+            </div>
+            
+            
+            
+         <div data-role="content" data-theme="d" id="content16">
+           
+           <p style='text-indent: 50px'>- Surveiller la respiration de la victime et veiller à ce qu’elle n’ait pas froid jusqu’à l’arrivée des secours  </p> 
+
+         </div>
+         
+            
+            
+         <div data-role="footer"  data-theme="d" id="foot16" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    
+                    <li><a href='#CallYesYes' data-role="button" data-icon="back" id="back11" data-transition='slidedown'>Précédent</a></li>
+                    <li><a href='#home' data-role="button" data-icon="home" id="homefoot" data-transition='flip'>Home</a></li>
+                    <li><a href='#BiblioYesYes' data-role="button" data-icon="forward" id="forw11" data-transition='slideup'>Suivant</a></li>
+                </ul> 
+            </div>  
+             
+           </div>  
+        </div> 
+            
+            
+                     <!-- /Soins Yes Yes  --> 
+                     
+                     
+                     
+                     
+                             <!-- Soins Yes No--> 
+           
+              <div data-role="page" id="SoinsYesNo" data-theme="d">
+            <div data-role="header" data-theme="d" id="h17" >
+                
+                
+            <h1><span class='firstLetter'>S</span>oins / <span class='firstLetter'>S</span>urveillance</h1>
+            <h2>Path Yes-No</h2>
+            
+            </div>
+            
+            
+            
+         <div data-role="content" data-theme="d" id="content17">
+           
+           <p style='text-indent: 50px'>- Surveiller la respiration de la victime et veiller à ce qu’elle n’ait pas froid jusqu’à l’arrivée des secours  </p> 
+
+         </div>
+         
+            
+            
+         <div data-role="footer"  data-theme="d" id="foot17" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    
+                    <li><a href='#CallYesNo' data-role="button" data-icon="back" id="back12" data-transition='slidedown'>Précédent</a></li>
+                    <li><a href='#home' data-role="button" data-icon="home" id="homefoot" data-transition='flip'>Home</a></li>
+                    <li><a href='#BiblioYesNo' data-role="button" data-icon="forward" id="forw12" data-transition='slideup'>Suivant</a></li>
+                </ul> 
+            </div>  
+             
+           </div>  
+        </div> 
+            
+            
+                     <!-- /Soins Yes No  --> 
+                     
+                     
+                     
+                                         <!-- Biblio No--> 
+           
+              <div data-role="page" id="BiblioNo" data-theme="d">
+            <div data-role="header" data-theme="d" id="h18" >
+                
+                
+            <h1><span class='firstLetter'>B</span>ibliographie</h1>
+            
+            
+            </div>
+            
+            
+            
+         <div data-role="content" data-theme="d" id="content18">
+             
+            
+                 
+           
+           <p >- distrimed.com/conseils/
+           page_noyade.php </p>
+           <p >- distrimed.com/conseils/
+           page_ventilation_art.php</p>
+           <p >- deko.apshram.net </p>
+           <p >- 4minutespour1vie.com </p>
+           <p >- toujourspret.com/techniques/secourisme/
+           lexique/M/massage_cardiaque_enfant.php </p>
+           
+         </div>
+         
+            
+            
+         <div data-role="footer"  data-theme="d" id="foot18" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    
+                    <li><a href='#SoinsNo' data-role="button" data-icon="back" id="back13" data-transition='slidedown'>Précédent</a></li>
+                    <li><a href='#home' data-role="button" data-icon="home" id="homefoot" data-transition='flip'>Home</a></li>
+                    
+                </ul> 
+            </div>  
+             
+           </div>  
+        </div> 
+            
+            
+                     <!-- /Biblio No  --> 
+                     
+                     
+                     
+                       <!-- Biblio YesYEs--> 
+           
+              <div data-role="page" id="BiblioYesYes" data-theme="d">
+            <div data-role="header" data-theme="d" id="h19" >
+                
+                
+            <h1><span class='firstLetter'>B</span>ibliographie</h1>
+            
+            
+            </div>
+            
+            
+            
+         <div data-role="content" data-theme="d" id="content19">
+             
+            
+                 
+           
+           <p >- distrimed.com/conseils/
+           page_noyade.php </p>
+           <p >- distrimed.com/conseils/
+           page_ventilation_art.php</p>
+           <p >- deko.apshram.net </p>
+           <p >- 4minutespour1vie.com </p>
+           <p >- toujourspret.com/techniques/secourisme/
+           lexique/M/massage_cardiaque_enfant.php </p>
+           
+         </div>
+         
+            
+            
+         <div data-role="footer"  data-theme="d" id="foot19" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    
+                    <li><a href='#SoinsYesYes' data-role="button" data-icon="back" id="back14" data-transition='slidedown'>Précédent</a></li>
+                    <li><a href='#home' data-role="button" data-icon="home" id="homefoot" data-transition='flip'>Home</a></li>
+                    
+                </ul> 
+            </div>  
+             
+           </div>  
+        </div> 
+            
+            
+                     <!-- /Biblio YesYEs  --> 
+                     
+                     
+                     
+                     
+                           <!-- Biblio YesNo--> 
+           
+              <div data-role="page" id="BiblioYesNo" data-theme="d">
+            <div data-role="header" data-theme="d" id="h20" >
+                
+                
+            <h1><span class='firstLetter'>B</span>ibliographie</h1>
+            
+            
+            </div>
+            
+            
+            
+         <div data-role="content" data-theme="d" id="content20">
+             
+            
+                 
+           
+           <p >- distrimed.com/conseils/
+           page_noyade.php </p>
+           <p >- distrimed.com/conseils/
+           page_ventilation_art.php</p>
+           <p >- deko.apshram.net </p>
+           <p >- 4minutespour1vie.com </p>
+           <p >- toujourspret.com/techniques/secourisme/
+           lexique/M/massage_cardiaque_enfant.php </p>
+           
+         </div>
+         
+            
+            
+         <div data-role="footer"  data-theme="d" id="foot20" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    
+                    <li><a href='#SoinsYesNo' data-role="button" data-icon="back" id="back15" data-transition='slidedown'>Précédent</a></li>
+                    <li><a href='#home' data-role="button" data-icon="home" id="homefoot" data-transition='flip'>Home</a></li>
+                    
+                </ul> 
+            </div>  
+             
+           </div>  
+        </div> 
+            
+            
+                     <!-- /Biblio YesNo  --> 
+                     
+                     
+                     
+                     
+                     
+                     
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+    </body>
+</html>
