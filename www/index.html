@@ -47,7 +47,13 @@ and open the template in the editor.
             
             
              });
-              
+                
+                $('#StabilisationNo').on('pagehide', function(){
+             
+                document.getElementById('myAudio').pause();
+            
+            
+             });
                document.getElementById("enregistrer").addEventListener('click', storeData
                       , false);
               
@@ -1262,8 +1268,8 @@ and open the template in the editor.
                  </div>
                  
                  
-                 <audio controls autoplay loop id="myAudio">
-			        <source src="audio/reanimation.mp3" autoplay loop type="audio/mpeg">
+                 <audio controls loop id="myAudio">
+			        <source src="audio/reanimation.mp3" loop type="audio/mpeg">
 		          </audio>
                   
                   
