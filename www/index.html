@@ -28,10 +28,25 @@ and open the template in the editor.
              //en touchant l'ecran vers la gauche on ouvre le panel 
              $("#myPanel").panel("open");
          });
+        
+         
+        
          
          
-            
+            //$(function(){ });    
           window.onload= function(){
+              
+              $('#StabilisationNo').on('pageshow', function(){
+             
+            $( "#myPanel2" ).panel( "open"); });
+            
+            // file audio 
+             $('#StabilisationNo').on('pageshow', function(){
+             
+            document.getElementById('myAudio').play();
+            
+            
+             });
               
                document.getElementById("enregistrer").addEventListener('click', storeData
                       , false);
@@ -1232,6 +1247,33 @@ and open the template in the editor.
                      <!-- Stabilisation  no--> 
            
               <div data-role="page" id="StabilisationNo" data-theme="d">
+                  
+                  <!-- panel2--->
+                  
+                           <div data-role="panel"  id="myPanel2" data-theme="d" data-display="overlay" data-position="right" ><!-- overlay comme ça notre panel couvre le form-->
+                     <a href="" data-role="button"  data-rel="close">Close Me!</a> 
+                     
+                     
+                     <p>Veuillez suivre le rythme du fichier audio afin de pouvoir effectuer 
+                     le massage cardiaque correctment
+                     
+                     
+                     </p>
+                 </div>
+                 
+                 
+                 <audio controls autoplay loop id="myAudio">
+			        <source src="audio/reanimation.mp3" autoplay loop type="audio/mpeg">
+		          </audio>
+                  
+                  
+                  <!--/ panel2--->
+                  
+                  
+                  
+                  
+                  
+                  
             <div data-role="header" data-theme="d" id="h12" >
                 
                 
@@ -1317,6 +1359,9 @@ and open the template in the editor.
           
           
                               </div>
+                              
+                              
+                     
       
       
       
